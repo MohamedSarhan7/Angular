@@ -1,0 +1,32 @@
+<p class="text-light fs-1">add-product works!</p>
+<div class="d-flex justify-content-center">
+
+    <div class="container w-50 text-light">
+        <!-- <form class="text-light"> -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Product Name</label>
+            <input type="email" class="form-control" [(ngModel)]="name" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" [(ngModel)]="price">
+        </div>
+        <div class="mb-3">
+            <label for="file" class="form-label">Image</label>
+            <input type="file" class="form-control" id="file" [(ngModel)]="imageURL">
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" min="1" class="form-control" id="quantity" [(ngModel)]="quantity">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" [(ngModel)]="description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="edit()">Add</button>
+        <!-- </form> -->
+
+    </div>
+
+</div>
