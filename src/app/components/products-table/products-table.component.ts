@@ -10,15 +10,37 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsTableComponent {
   // allProducts:IProduct[]=Products();
-  allProducts: IProduct[] = [];
+  allProducts: any= [];
   constructor(private productService: ProductService) { } // initalization
   ngOnInit(): void {
-    this.allProducts = this.productService.getAllProduct();
+  this.productService.getAllProduct().subscribe(
+    {
+      next:(res)=>{
+        this.allProducts = res;  
+
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    }
+    // (res)=>{
+    // console.log(res);
+    // }
+    );
   }
   remove(id:number){
+    this.productService.delete(id).subscribe({
+      next:(res)=>{
+        this.allProducts =this.allProducts.filter((item:any)=>item.id!=id);
+        console.log(res)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
     // this.productService.delete(id);
-    console.log(id)
-    this.allProducts =this.allProducts.filter((item)=> item.id!=id)
+    // console.log(id)
+    // this.allProducts =this.allProducts.filter((item)=> item.id!=id)
   }
   getProduct(id:number){
     

@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductDetailsComponent implements OnInit {
 
   productId: number = 0;
-  product: IProduct | null = null;
+  product:  any = null;
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
@@ -20,7 +20,14 @@ export class ProductDetailsComponent implements OnInit {
   }
   ngOnInit(): void {
     if (this.productId) {
-      this.product = this.productService.getProductById(this.productId);
+      this.productService.getProductById(this.productId).subscribe({
+        next:(res)=>{
+          this.product=res;
+        },
+        error:(err)=>{
+          console.log(err);
+        }
+      });
     } else {
       this.router.navigate(['/products']);
     }

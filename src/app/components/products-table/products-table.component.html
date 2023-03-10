@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-end align-items-center">
-    <a class="btn btn-outline-light m-5 " routerLink="/products/da/add">
+    <a class="btn btn-outline-light m-5 " [routerLink]="['/products/edit/0']">
         <i class="bi bi-plus-circle text-primary fs-3 mx-5 p-5" ></i>
     </a>
 </div>
@@ -24,7 +24,7 @@
                     <div class="d-flex justify-content-evenly">
 
                         <i class="bi bi-eye-fill text-success" routerLink="/products/{{ item.id }}"></i>
-                        <i class="bi bi-pencil-square fs-4 " routerLink="/products/{{ item.id }}/edit" ></i>
+                        <i class="bi bi-pencil-square fs-4 " routerLink="/products/edit/{{ item.id }}" ></i>
                         <i class="bi bi-trash3 text-danger fs-4" (click)="remove(item.id)"></i>
 
                     </div>
