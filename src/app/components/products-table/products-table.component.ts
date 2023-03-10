@@ -16,6 +16,7 @@ export class ProductsTableComponent {
     this.allProducts = this.productService.getAllProduct();
   }
   remove(id:number){
+    // this.productService.delete(id);
     console.log(id)
     this.allProducts =this.allProducts.filter((item)=> item.id!=id)
   }

@@ -11,6 +11,7 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) { }
   username: string = '';
   password: string = '';
+  
   login() {
     this.authService.login(this.username, this.password);
     this.router.navigate(["/"]);

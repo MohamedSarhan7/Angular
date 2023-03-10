@@ -32,4 +32,7 @@ export class ProductService {
   getProductById(productId: number): IProduct {
     return Products.filter((product) => product.id == productId)[0];
   }
+  delete(id:number){
+    // Products = Products.filter((item) => item.id != id)
+  }
 }

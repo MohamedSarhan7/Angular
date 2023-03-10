@@ -10,6 +10,7 @@ export class NavbarComponent {
 // @Input() count:number=0;
   constructor(private auth: AuthService) { }
   get getUsername() {
+    // console.log(this.auth.currentUser?.username)
     return this.auth.currentUser?.username;
   }
 
